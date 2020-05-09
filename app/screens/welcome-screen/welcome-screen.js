@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Button} from 'react-native';
 
 const ROOT = {
   flex: 1,
@@ -18,7 +18,10 @@ const TITLE = {
   marginBottom: 20,
 };
 
-export const WelcomeScreen = (props) => {
+export const WelcomeScreen = ({navigation}) => {
+  const navigateToGoodBye = () => {
+    navigation.navigate('goodbye');
+  };
   return (
     <View style={ROOT}>
       <Text style={TITLE}>We're ready to roll!</Text>
@@ -28,6 +31,8 @@ export const WelcomeScreen = (props) => {
           uri: 'https://media.giphy.com/media/l4Ep3mmmj7Bw3adWw/giphy.gif',
         }}
       />
+
+      <Button onPress={navigateToGoodBye} title="Goodbye" />
     </View>
   );
 };
